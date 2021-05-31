@@ -10,7 +10,7 @@ class ObjectDoesntExistsError(Exception):
         super().__init__(self.message)
 class ParseError(Exception):
    def __init__(self):
-        self.message = "Error happened while parsing JSON, Check the .wdb file and see if it has errors like missing pharentesis."
+        self.message = "Error happened while parsing JSON, Check the .rdb file and see if it has errors like missing pharentesis."
         super().__init__(self.message)
 class RDBSelect:
     def __init__(self,filepath):
