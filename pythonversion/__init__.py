@@ -17,12 +17,20 @@ class RDBSelect:
         self.filepath = filepath
         try:
             self.file = open(filepath,"r").read()
-            try:    
-                self.data = json.loads(self.file)
-            except:
-                raise ParseError()
-        except: 
-            print()
+            if self.file == "":
+               open(filepath,"w").write("{}")
+               print("Database was empty, now the content is {}.")
+               try:    
+                   self.data = json.loads(self.file)
+               except:  
+                   raise ParseError()
+            else:
+               try:    
+                  self.data = json.loads(self.file)
+               except:
+                  raise ParseError()
+        except FileNotFoundError: 
+            print("RDB File not found!")
     def getRawData(self):
         return self.file
     def getDataAsDict(self):
@@ -34,6 +42,11 @@ class RDBSelect:
             raise ObjectAlreadyExistsError()
         else:
             self.data[name] = {}
+    def createObjectIfNotExists(self,name):
+        if name in self.data:
+            pass
+        else:
+            self.data[name] = {}
     def deleteObject(self,name):
         if name not in self.data:
             raise ObjectDoesntExistsError()
@@ -43,6 +56,11 @@ class RDBSelect:
         del self.data[obj][element]
     def createElementInObject(self,obj,elmname,val):
         self.data[obj][elmname] = val
+    def createElementInObjectIfNotExists(self,obj,elmname,val):
+        if elmname in obj:
+           pass
+        else:
+           self.data[obj][elmname] = val
     def refreshData(self):
         self.file = open(self.filepath,"r").read()
     def commitChanges(self):
