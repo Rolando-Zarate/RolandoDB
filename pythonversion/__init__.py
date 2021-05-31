@@ -36,6 +36,8 @@ class RDBSelect:
         return self.file
     def getDataAsDict(self):
         return json.dumps(self.data,indent = 4)
+    def getDataAsJson(self):
+        return data
     def getObject(self,objectname):
         return self.data[objectname]
     def createObject(self,name):
