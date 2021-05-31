@@ -40,9 +40,9 @@ class RDBSelect:
         return self.file
     def getDataAsJson(self):
         return self.data
-    def getObject(self,objectname):
+    def getAllElementsFromObject(self,objectname):
         return self.data[objectname]
-    def getObjectIfExists(self,objectname):
+    def getAllElementsFromObjectIfExists(self,objectname):
         if objectname in self.data:
            return self.data[objectname]
         else:
@@ -78,14 +78,16 @@ class RDBSelect:
            self.data[obj][elmname] = val
     def getElementFromObject(self,obj,elm):
        if elm in self.data[obj]:
-          raise ElementDoesntExist()
-       else:
           return self.data[obj][elm]
+       else:
+          raise ElementDoesntExistsError()
     def getElementFromObjectIfExists(self,obj,elm):
        if elm in self.data[obj]:
-          pass
-       else:
           return self.data[obj][elm]
+       else:
+          pass
+    def turnJsonListIntoList(self,listToTurn):
+       return list(listToTurn)
     def refreshData(self):
         self.file = open(self.filepath,"r").read()
     def commitChanges(self):
