@@ -1,4 +1,5 @@
 import json
+import os
 version = "1.0 Beta"
 class ObjectAlreadyExistsError(Exception):
    def __init__(self):
@@ -71,6 +72,16 @@ class RDBSelect:
     def commitChanges(self):
         toChange = open(self.filepath,"w")
         toChange.truncate()
-        toChange.write(json.dumps(self.data,indent = 4))    
+        toChange.write(json.dumps(self.data,indent = 4))
+def createFileIfNotExists(name):
+   if os.path.exists(name+".rdb"):
+      pass
+   else:
+      open(name+".rdb","w")
+def createFile(name):
+   if os.path.exists(name+".rdb"):
+      print("File exists.")
+   else:
+      open(name+".rdb","w")
 if __name__ == "__main__":
     print("RolandoDB version is: "+version+".")
