@@ -38,6 +38,11 @@ class RDBSelect:
         return data
     def getObject(self,objectname):
         return self.data[objectname]
+    def getObjectIfExists(self,objectname):
+        if objectname in self.data:
+           return self.data[objectname]
+        else:
+           pass
     def createObject(self,name):
         if name in self.data:
             raise ObjectAlreadyExistsError()
