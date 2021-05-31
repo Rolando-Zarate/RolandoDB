@@ -9,6 +9,10 @@ class ObjectDoesntExistsError(Exception):
    def __init__(self):
         self.message = "Object doesn't exists in database."
         super().__init__(self.message)
+class ElementDoesntExistsError(Exception):
+   def __init__(self):
+        self.message = "Element doesn't exists in object."
+        super().__init__(self.message)
 class ParseError(Exception):
    def __init__(self):
         self.message = "Error happened while parsing JSON, Check the .rdb file and see if it has errors like missing pharentesis."
@@ -35,7 +39,7 @@ class RDBSelect:
     def getRawData(self):
         return self.file
     def getDataAsJson(self):
-        return data
+        return self.data
     def getObject(self,objectname):
         return self.data[objectname]
     def getObjectIfExists(self,objectname):
@@ -72,6 +76,16 @@ class RDBSelect:
            pass
         else:
            self.data[obj][elmname] = val
+    def getElementFromObject(self,obj,elm):
+       if elm in self.data[obj]:
+          raise ElementDoesntExist()
+       else:
+          return self.data[obj][elm]
+    def getElementFromObjectIfExists(self,obj,elm):
+       if elm in self.data[obj]:
+          pass
+       else:
+          return self.data[obj][elm]
     def refreshData(self):
         self.file = open(self.filepath,"r").read()
     def commitChanges(self):
