@@ -96,6 +96,8 @@ class RDBSelect:
     def refreshData(self):
         self.file = open(self.filepath,"r").read()
         self.data = json.loads(self.file)
+    def clearDatabase(self):
+        self.data = {}
     def commitChanges(self):
         toChange = open(self.filepath,"w")
         toChange.truncate()
