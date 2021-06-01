@@ -95,6 +95,7 @@ class RDBSelect:
        return list(listToTurn)
     def refreshData(self):
         self.file = open(self.filepath,"r").read()
+        self.data = json.loads(self.file)
     def commitChanges(self):
         toChange = open(self.filepath,"w")
         toChange.truncate()
