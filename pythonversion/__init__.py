@@ -69,6 +69,11 @@ class RDBSelect:
             del self.data[name]
     def deleteElementFromObject(self,obj,element):
         del self.data[obj][element]
+    def deleteElementFromObjectIfExists(self,obj,element):
+        if element in self.data[obj]:
+           del self.data[obj][element]
+        else:
+           pass
     def createElementInObject(self,obj,elmname,val):
         self.data[obj][elmname] = val
     def createElementInObjectIfNotExists(self,obj,elmname,val):
