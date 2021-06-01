@@ -91,7 +91,7 @@ class RDBSelect:
           return self.data[obj][elm]
        else:
           pass
-    def turnJsonListIntoList(self,listToTurn):
+    def turnDatabaseListIntoList(self,listToTurn):
        return list(listToTurn)
     def refreshData(self):
         self.file = open(self.filepath,"r").read()
