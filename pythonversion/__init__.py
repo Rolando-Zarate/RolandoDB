@@ -114,3 +114,4 @@ def createFile(name):
       open(name+".rdb","w")
 if __name__ == "__main__":
     print("RolandoDB version is: "+version+".")
+
