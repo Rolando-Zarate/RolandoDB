@@ -54,9 +54,10 @@ class RDBSelect:
             self.data[name] = {}
     def createObjectIfNotExists(self,name):
         if name in self.data:
-            pass
+            return False
         else:
             self.data[name] = {}
+            return True
     def deleteObject(self,name):
         if name not in self.data:
             raise ObjectDoesntExistsError()
@@ -114,4 +115,3 @@ def createFile(name):
       open(name+".rdb","w")
 if __name__ == "__main__":
     print("RolandoDB version is: "+version+".")
-
