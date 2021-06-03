@@ -38,7 +38,7 @@ class RDBSelect:
             print("RDB File not found!")
     def getRawData(self):
         return self.file
-    def getDataAsJson(self):
+    def getParsedData(self):
         return self.data
     def getAllElementsFromObject(self,objectname):
         return self.data[objectname]
