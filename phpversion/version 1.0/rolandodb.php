@@ -35,8 +35,8 @@ class RDBSelect{
 	function deleteObject($name){
 		unset($this->data[$name]);
 	}
-	function turnDatabaseListToList($list){
-		//unused function, php included json parser turn all elements into a multidimensional array.
+	function turnListIntoDatabaseList($obj,$oldlist,$newlist){
+		$this->data[$obj][$oldlist] = $newlist;
 	}
 	function deleteElementFromObject($obj,$name){
 		if (count($this->data[$obj])==0){
@@ -69,13 +69,8 @@ class RDBSelect{
 	function createElementInObject($obj,$elmname,$elmcontent){
 		$this->data[$obj][$elmname]= $elmcontent;
 	}
-	function createElementInObject($obj,$elmname,$elmcontent){
-		if (isset($this->data[$obj][$elmname])){
-			return false;
-		}
-		}else{
-			$this->data[$obj][$elmname]= $elmcontent;
-		}
+	function getElement($obj,$elm){
+		return $this->data[$obj][$elm];
 	}
 }
 function createNewDatabaseFile($name){
