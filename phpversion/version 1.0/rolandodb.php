@@ -3,7 +3,6 @@ $version = "1.0 Beta";
 class RDBSelect{
 	function __construct($filepath){
 		$this->filepath = $filepath;
-		echo $this->filepath," as database.";
 		$this->dbfile = file_get_contents($this->filepath);
 		$this->data = json_decode($this->dbfile,true);
 	}
@@ -41,7 +40,7 @@ class RDBSelect{
 	}
 	function deleteElementFromObject($obj,$name){
 		if (count($this->data[$obj])==0){
-			echo "All objects must have 1 element minimum.";
+			return "All objects must have 1 element minimum.";
 		}else{
 			unset($this->data[$obj][$name]);
 		}		
@@ -51,7 +50,7 @@ class RDBSelect{
 			return false;
 		}else{
 			if (count($this->data[$obj])==0){
-				echo "All objects must have 1 element minimum.";
+				return "All objects must have 1 element minimum.";
 			}else{
 				unset($this->data[$obj][$name]);
 			}		
@@ -66,6 +65,17 @@ class RDBSelect{
 	}
 	function commitChanges(){
 		file_put_contents($this->filepath,json_encode($this->data));
+	}
+	function createElementInObject($obj,$elmname,$elmcontent){
+		$this->data[$obj][$elmname]= $elmcontent;
+	}
+	function createElementInObject($obj,$elmname,$elmcontent){
+		if (isset($this->data[$obj][$elmname])){
+			return false;
+		}
+		}else{
+			$this->data[$obj][$elmname]= $elmcontent;
+		}
 	}
 }
 function createNewDatabaseFile($name){
