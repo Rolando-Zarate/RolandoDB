@@ -69,6 +69,14 @@ class RDBSelect{
 	function createElementInObject($obj,$elmname,$elmcontent){
 		$this->data[$obj][$elmname]= $elmcontent;
 	}
+	function createElementInObjectIfNotExists($obj,$elmname,$elmcontent){
+		if (isset($this->data[$obj][$elmname])){
+			return False;
+		}else{
+			$this->data[$obj][$elmname]= $elmcontent;
+			return True;
+		}
+	}
 	function getElement($obj,$elm){
 		return $this->data[$obj][$elm];
 	}
