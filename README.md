@@ -1,12 +1,17 @@
 # RolandoDB
-RolandoDB is a open source portable lightweight JSON-Based database
+RolandoDB is a open source portable lightweight JSON-Based database for 
 
-developed By Rolando Zarate.
+the programming languages Python (3) and PHP (?).
 
-Tested by Fernando Jelvez (Python Version) and
+# Testing
+Python version is Rolando Zarate and Fernando Jelvez.
+PHP version is Rolando Zarate.
 
-Rolando Zarate (PHP, and Python too)
+# Development
+The RolandoDB project is developed and maintained
+by Rolando Zarate.
 
-Current Python version is 1.0 definitive.
+# Versions
+RolandoDB python implementation is in version 1.0 definitive
 
-Current PHP version is 1.0.
+In PHP version is 1.0, not definitive.
