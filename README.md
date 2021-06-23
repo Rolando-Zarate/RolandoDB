@@ -14,4 +14,4 @@ by Rolando Zarate.
 # Versions
 RolandoDB python implementation is in version 1.0 definitive
 
-In PHP version is 1.0, not definitive.
+In PHP version is 1.0 definitive.
