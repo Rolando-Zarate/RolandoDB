@@ -12,6 +12,6 @@ The RolandoDB project is developed and maintained
 by Rolando Zarate.
 
 # Versions
-RolandoDB python implementation is in version 1.0 definitive
+RolandoDB python implementation is in version 1.0 beta.
 
 PHP implementation is in version is 1.0 definitive.
