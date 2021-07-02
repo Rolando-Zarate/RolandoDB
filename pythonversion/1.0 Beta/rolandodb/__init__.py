@@ -1,6 +1,6 @@
 import json
 import os
-version = "1.0 Definitive"
+version = "1.0 beta"
 class ObjectAlreadyExistsError(Exception):
    def __init__(self):
         self.message = "Object already exists in database."
