@@ -120,8 +120,8 @@ class RDBSelect:
             return None
 
     def refreshData(self):
-        self.file = open(self.filepath, "r").read()
-        self.data = json.loads(self.file)
+        with open(self.filepath, "r") as file:
+            self.data = json.loads(file)
 
     def clearDatabase(self):
         self.data = {}
@@ -134,3 +134,4 @@ class RDBSelect:
 
 if __name__ == "__main__":
     print("RolandoDB version is: " + version + ".")
+
