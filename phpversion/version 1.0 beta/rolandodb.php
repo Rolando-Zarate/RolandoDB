@@ -1,4 +1,4 @@
-?php
+<?php
 $version = "1.0 Beta";
 class RDBSelect{
 	function __construct($filepath){
