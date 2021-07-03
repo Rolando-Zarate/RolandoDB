@@ -1,5 +1,5 @@
 <?php
-$version = "1.0 Beta";
+$version = "1.0 Beta 03 07 2021";
 class RDBSelect{
 	function __construct($filepath){
 		$this->filepath = $filepath;
@@ -19,38 +19,31 @@ class RDBSelect{
 		if (isset($this->data[$name])){
 			return $this->data[$name];		
 		}else{			
-			
+			return false;
 		}
 	}
-	function createObject($name,$initialelmname,$initialelmcon){
-		$this->data[$name] = array($initialelmname=>$initialelmcon);
+	function createObject($name){
+		$this->data[$name] = array("ignore"=>"ignore");
 	}
-	function createObjectIfNotExists($name,$initialelmname,$initialelmcon){
+	function createObjectIfNotExists($name){
 		if (isset($this->data[$name])){
 			return false;
 		}else{
-			$this->data[$name] = array($initialelmname=>$initialelmcon);
+			$this->data[$name] = array("ignore"=>"ignore");
 		}
 	}
 	function deleteObject($name){
 		unset($this->data[$name]);
 	}
-	function turnListIntoDatabaseList($obj,$oldlist,$newlist){
-		$this->data[$obj][$oldlist] = $newlist;
-	}
 	function deleteElementFromObject($obj,$name){
-		if (count($this->data[$obj])==0){
-			return "All objects must have 1 element minimum.";
-		}else{
-			unset($this->data[$obj][$name]);
-		}		
+		unset($this->data[$obj][$name]);
 	}
 	function deleteElementFromObjectIfExists($obj,$name){
 		if (!isset($this->data[$obj][$name])){
 			return false;
 		}else{
 			if (count($this->data[$obj])==0){
-				return "All objects must have 1 element minimum.";
+				unset($this->data[$name]["ignore"]);
 			}else{
 				unset($this->data[$obj][$name]);
 			}		
@@ -60,24 +53,26 @@ class RDBSelect{
 		$this->dbfile = file_get_contents($this->filepath);
 		$this->data = json_decode($this->dbfile,true);
 	}
-	function createDatabase(){
+	function clearDatabase(){
 		$this->data = json_decode("{}");
 	}
 	function commitChanges(){
 		file_put_contents($this->filepath,json_encode($this->data));
 	}
 	function createElementInObject($obj,$elmname,$elmcontent){
+		unset($this->data[$obj]["ignore"]);
 		$this->data[$obj][$elmname]= $elmcontent;
 	}
 	function createElementInObjectIfNotExists($obj,$elmname,$elmcontent){
+		unset($this->data[$deleteElementFromObjectIfExists]["ignore"]);
 		if (isset($this->data[$obj][$elmname])){
-			return False;
+			return false;
 		}else{
 			$this->data[$obj][$elmname]= $elmcontent;
-			return True;
+			return true;
 		}
 	}
-	function getElement($obj,$elm){
+	function getElementFromObject($obj,$elm){
 		return $this->data[$obj][$elm];
 	}
 }
