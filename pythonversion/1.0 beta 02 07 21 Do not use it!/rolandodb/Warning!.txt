@@ -1,0 +1,1 @@
+This version of RolandoDB has a error in the method getRawData of class RDBSelect.
