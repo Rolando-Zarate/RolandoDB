@@ -86,7 +86,9 @@ def main():
 if __name__ == "__main__":
   main()
 ```
+
 No output.
+
 Warning: If you use delete methods in objects/elements that do not exist, it will throw a ElementDoesNotExistsError or ObjectDoesNotExistsError.
 
 Safe deletion:
@@ -107,11 +109,17 @@ None
 None
 ```
 Refresh and clearing:
+
 If you want to refresh the database if other script/anything changed it you will need this method:
+
 RDBSelect.refreshData()
+
 It will reopen the file and parse it again.
+
 To clear the database use:
+
 RDBSelect.clearDatabase()
+
 It will delete ALL of the data, objects and his elements.
 
 End of tutorial.
