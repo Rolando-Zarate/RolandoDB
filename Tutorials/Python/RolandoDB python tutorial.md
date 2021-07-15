@@ -115,7 +115,6 @@ RDBSelect.refreshData()
 
 It will reopen the file and parse it again.
 To clear the database use:
-
 RDBSelect.clearDatabase()
 
 It will delete ALL of the data, objects and his elements.
