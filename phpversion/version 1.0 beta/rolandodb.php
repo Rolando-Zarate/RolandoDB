@@ -1,5 +1,5 @@
 <?php
-$version = "1.0 Beta 03 07 2021";
+$version = "1.0 Beta Final (03 07 2021)";
 class RDBSelect{
 	function __construct($filepath){
 		$this->filepath = $filepath;
