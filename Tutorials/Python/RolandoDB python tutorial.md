@@ -111,11 +111,9 @@ None
 Refresh and clearing:
 
 If you want to refresh the database if other script/anything changed it you will need this method:
-
 RDBSelect.refreshData()
 
 It will reopen the file and parse it again.
-
 To clear the database use:
 
 RDBSelect.clearDatabase()
