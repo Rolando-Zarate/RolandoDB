@@ -53,6 +53,7 @@ Output:
 ```
 Warning about this code: If we open the code again, we are trying to recreate the object, so RolandoDB will throw a ObjectAlreadyExistsError, Also
 it will throw a ElementAlreadyExistsError because you are also trying to recreate a element, these methods are used in a few cases, see below for help.
+
 Safe creation of objects and elements:
 ```
 import rolandodb
@@ -88,6 +89,7 @@ if __name__ == "__main__":
 ```
 No output.
 Warning: If you use delete methods in objects/elements that do not exist, it will throw a ElementDoesNotExistsError or ObjectDoesNotExistsError.
+
 Safe deletion:
 ```
 import rolandodb
