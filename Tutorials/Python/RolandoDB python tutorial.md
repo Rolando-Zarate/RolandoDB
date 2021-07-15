@@ -1,5 +1,4 @@
-# Here is a tutorial for RolandoDB (beta pre final)
-NOTE: This tutorial will be probably outdated in time, see all the versions in the folder Tutorials/Python and check the lastest edition.
+# Here is a tutorial for RolandoDB in Python
 
 # Installation
 Download the module, you can use the folder rolandodb and put it in the python lib folder or if you want,
