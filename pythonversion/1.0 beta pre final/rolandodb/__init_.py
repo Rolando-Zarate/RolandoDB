@@ -1,7 +1,7 @@
 import json
 import os
 
-version = "1.0 beta pre final (05 07 2021)"
+version = "1.0 beta 15 07 2021"
 
 
 class RolandoDBException(Exception):
@@ -25,6 +25,12 @@ class ObjectDoesNotExistsError(RolandoDBException):
 class ElementDoesNotExistsError(RolandoDBException):
     def __init__(self):
         self.message = "Element does not exists in object."
+        super().__init__(self.message)
+
+
+class ElementAlreadyExistsError(RolandoDBException):
+    def __init__(self):
+        self.message = "Element already exists in object."
         super().__init__(self.message)
 
 
@@ -87,13 +93,15 @@ class RDBSelect:
 
     def deleteObjectIfExists(self, name):
         if name not in self.data:
-            pass
+            return None
         else:
             del self.data[name]
 
     def deleteElementFromObject(self, obj, element):
-        del self.data[obj][element]
-
+        if obj in self.data and element in self.data[obj]:
+            del self.data[obj][element]
+        else:
+            return ElementDoesNotExistsError
     def deleteElementFromObjectIfExists(self, obj, element):
         if obj in self.data and element in self.data[obj]:
             del self.data[obj][element]
@@ -101,10 +109,13 @@ class RDBSelect:
             return None
 
     def createElementInObject(self, obj, elmname, val):
-        self.data[obj][elmname] = val
+        if elmname in self.data[obj]:
+            raise ElementAlreadyExistsError
+        else:
+            self.data[obj][elmname] = val
 
     def createElementInObjectIfNotExists(self, obj, elmname, val):
-        if elmname in obj:
+        if elmname in self.data[obj]:
             return None
         else:
             self.data[obj][elmname] = val
@@ -136,3 +147,4 @@ class RDBSelect:
 
 if __name__ == "__main__":
     print("RolandoDB version is: " + version + ".")
+
