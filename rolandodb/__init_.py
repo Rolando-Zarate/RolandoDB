@@ -1,13 +1,11 @@
 import json
 import os
 
-version = "1.0 beta pre final 15 07 2021"
+version = "1.0 beta pre final 29 07 2021"
 
 
 class RolandoDBException(Exception):
-    def __init__(self, message):
-        self.message = message
-        super().__init__(self.message)
+    pass
 
 
 class ObjectAlreadyExistsError(RolandoDBException):
