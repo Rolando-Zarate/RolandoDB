@@ -1,6 +1,5 @@
 # RolandoDB for Python
-RolandoDB is a open source portable lightweight JSON-Based (based on objects) database for 
-
+RolandoDB is a open source portable lightweight JSON-Based (based on objects) database for\
 the programming languages Python (3) and [PHP(?)](https://github.com/Rolando-Zarate/RolandoDB-PHP).
 
 # Testing
