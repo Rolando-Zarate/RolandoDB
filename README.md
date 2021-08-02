@@ -4,7 +4,7 @@ the programming languages Python (3) and [PHP(?)](https://github.com/Rolando-Zar
 
 # Testing
 Python version is tested by Rolando Zarate (alpha and new versions) and Fernando Jelvez just (1.0 pre beta).\
-PHP version is Rolando Zarate.
+PHP version is tested by Rolando Zarate.
 
 # Development
 The RolandoDB project is developed and maintained
