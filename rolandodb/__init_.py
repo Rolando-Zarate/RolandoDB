@@ -42,9 +42,8 @@ class RDBSelect:
                 except json.decoder.JSONDecodeError as e:
                     raise e
         else:
-            newfile = open(self.filepath,"w")
-            newfile.write("{}")
-            newfile.close()
+            with open(self.filepath,"w") as file:
+                file.write("{}")
             with open(self.filepath) as file:
                 try:
                     self.data = json.load(file) 
@@ -145,4 +144,3 @@ class RDBSelect:
 
 if __name__ == "__main__":
     print("RolandoDB version is: " + version + ".")
-
