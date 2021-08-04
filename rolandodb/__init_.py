@@ -1,7 +1,7 @@
 import json
 import os
 
-version = "1.0 beta pre final 29 07 2021"
+version = "1.0 03 09 2021"
 
 
 class RolandoDBException(Exception):
